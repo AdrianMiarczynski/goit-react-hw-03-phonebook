@@ -9,6 +9,12 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
+  constructor() {
+    super();
+    const saveData = localStorage.getItem('contacts');
+    const parseData = JSON.parse(saveData);
+    this.state.contacts = parseData;
+  }
 
   handlerChange = ev => {
     this.setState({ [ev.target.name]: ev.target.value });
@@ -46,6 +52,9 @@ export class App extends Component {
       contacts: this.state.contacts.filter(contact => contact.id !== id),
     });
   };
+  componentDidUpdate() {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
 
   render() {
     return (
