@@ -11,7 +11,8 @@ class Contacts extends Component {
             <button
               type="submit"
               className={css['list__items-btn']}
-              onClick={() => this.props.deleteContact(id)}>
+              onClick={() => this.props.deleteContact(id)}
+            >
               Delete
             </button>
           </li>
