@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import css from './contactsform.module.css';
 
 class ContactsForm extends Component {
+  state = {
+    name: '',
+    number: '',
+  };
   render() {
-    const { name } = this.props.name;
-    const { number } = this.props.number;
+    const { name } = this.state.name;
+    const { number } = this.state.number;
     return (
       <form onSubmit={this.props.handlerSubmit} className={css.form}>
         <label htmlFor="name" className={css['form__label']}>
