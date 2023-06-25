@@ -38,14 +38,13 @@ export class App extends Component {
   };
 
   filterContacts = data => {
-    return this.state.contacts.filter(({ name }) =>
-      name.toLowerCase().includes(data.toLowerCase())
+    return this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(data.toLowerCase())
     );
   };
   filterEvcontacts = ev => {
-    this.setState({
-      filter: ev.target.value,
-    });
+    this.handlerChange(ev);
+    this.filterContacts(ev.target.value);
   };
 
   deleteContact = id => {
