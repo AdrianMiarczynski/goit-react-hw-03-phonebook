@@ -31,15 +31,15 @@ export class App extends Component {
     console.log(this.state);
   };
 
-  addContacts = person => {
+  addContacts = data => {
     this.setState(state => ({
-      contacts: [...state.contacts, person],
+      contacts: [...state.contacts, data],
     }));
   };
 
   filterContacts = data => {
-    return this.state.contacts.filter(contact =>
-      contact.name.toLowerCase().includes(data.toLowerCase())
+    return this.state.contacts.filter(({ name }) =>
+      name.toLowerCase().includes(data.toLowerCase())
     );
   };
   filterEvcontacts = ev => {
@@ -47,8 +47,8 @@ export class App extends Component {
     this.filterContacts(ev.target.value);
   };
 
-  deleteContact = id => {
-    this.setState({
+  deleteContact = async id => {
+    await this.setState({
       contacts: this.state.contacts.filter(contact => contact.id !== id),
     });
   };
