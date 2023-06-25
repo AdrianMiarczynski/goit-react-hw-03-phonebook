@@ -43,8 +43,9 @@ export class App extends Component {
     );
   };
   filterEvcontacts = ev => {
-    this.handlerChange(ev);
-    this.filterContacts(ev.target.value);
+    this.setState({
+      filter: ev.target.value,
+    });
   };
 
   deleteContact = id => {
