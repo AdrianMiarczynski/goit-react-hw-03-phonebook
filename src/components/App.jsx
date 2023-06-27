@@ -9,12 +9,12 @@ export class App extends Component {
     contacts: [],
     filter: '',
   };
-  // constructor() {
-  //   super();
-  //   const saveData = localStorage.getItem('contacts');
-  //   const parseData = JSON.parse(saveData);
-  //   this.state.contacts = parseData;
-  // }
+  constructor() {
+    super();
+    const saveData = localStorage.getItem('contacts');
+    const parseData = JSON.parse(saveData);
+    this.state.contacts = parseData;
+  }
 
   handlerChange = ev => {
     this.setState({ [ev.target.name]: ev.target.value });
