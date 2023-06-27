@@ -52,9 +52,9 @@ export class App extends Component {
       contacts: this.state.contacts.filter(contact => contact.id !== id),
     });
   };
-  // componentDidUpdate() {
-  //   localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-  // }
+  componentDidUpdate() {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
 
   render() {
     return (
